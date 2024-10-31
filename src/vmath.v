@@ -19,3 +19,18 @@ pub fn fract(x f64) f64 {
 	_, fract := math.modf(x)
 	return fract
 }
+
+fn fib(n int) int {
+	mut ans := [0, 1]
+	for i in 2 .. n + 1 {
+		ans << ans[i - 1] + ans[i - 2]
+	}
+	return ans[n]
+}
+
+fn fib2(n int) int {
+	if n == 0 || n == 1 {
+		return n
+	}
+	return fib2(n - 1) + fib2(n - 2)
+}
